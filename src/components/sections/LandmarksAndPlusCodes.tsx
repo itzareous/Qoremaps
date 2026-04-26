@@ -1,8 +1,12 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 import MapPoint from '@/assets/icons/Bold/MapPoint.svg?react';
 import MapGrid from '@/assets/icons/Bold/MapGrid.svg?react';
 import Bus from '@/assets/icons/Bold/Bus.svg?react';
+
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 const features = [
   {
@@ -26,10 +30,23 @@ const features = [
 ];
 
 export default function LandmarksAndPlusCodes() {
+  const reduce = useReducedMotion();
+
+  const item = {
+    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 14 },
+    show: reduce
+      ? { opacity: 1, transition: { duration: 0.2 } }
+      : { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  };
+  const stagger = {
+    hidden: {},
+    show: { transition: { staggerChildren: reduce ? 0 : 0.06 } },
+  };
+
   return (
     <section className="bg-[#f9fafb] py-20">
       <Container>
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <Reveal className="text-center max-w-3xl mx-auto mb-16">
           <Eyebrow>Landmark search</Eyebrow>
           <h2
             style={{ fontFamily: 'Ciscela, serif' }}
@@ -41,11 +58,21 @@ export default function LandmarksAndPlusCodes() {
             Most Nigerian addresses aren't street numbers. Qore Maps speaks the
             language we actually use.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {features.map(({ Icon, title, body }) => (
-            <div key={title} className="bg-white border border-gray-100 p-8">
+            <motion.div
+              key={title}
+              variants={item}
+              className="qm-card-hover bg-white border border-gray-100 p-8"
+            >
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-light text-primary mb-6">
                 <Icon />
               </div>
@@ -56,9 +83,9 @@ export default function LandmarksAndPlusCodes() {
                 {title}
               </h3>
               <p className="text-base leading-relaxed text-gray-600">{body}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

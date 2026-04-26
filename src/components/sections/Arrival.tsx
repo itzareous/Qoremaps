@@ -1,12 +1,13 @@
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 export default function Arrival() {
   return (
     <section className="bg-white py-20">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
+          <Reveal>
             <Eyebrow>Arrival</Eyebrow>
             <h2
               style={{ fontFamily: 'Ciscela, serif' }}
@@ -18,15 +19,15 @@ export default function Arrival() {
               We don't just drop you on the street. We tell you which gate,
               which floor, which side of the building.
             </p>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={0.08}>
             {/* TODO: Replace with arrival card UI showing a Lagos POI like a Lekki restaurant */}
             <img
               src="/images/placeholders/arrival.webp"
               alt="Arrival card showing a Lagos destination"
               className="w-full object-cover border border-gray-100"
             />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

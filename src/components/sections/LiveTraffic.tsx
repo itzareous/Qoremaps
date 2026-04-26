@@ -1,20 +1,21 @@
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 export default function LiveTraffic() {
   return (
     <section id="features" className="bg-[#f9fafb] py-20">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="order-2 lg:order-1">
+          <Reveal className="order-2 lg:order-1">
             {/* TODO: Replace with photo of a Nigerian driver in Lagos traffic, dashboard view */}
             <img
               src="/images/placeholders/driver-single.webp"
               alt="Driver navigating Lagos with Qore Maps on the dashboard"
               className="w-full object-cover border border-gray-100"
             />
-          </div>
-          <div className="order-1 lg:order-2">
+          </Reveal>
+          <Reveal className="order-1 lg:order-2" delay={0.08}>
             <Eyebrow>Turn by turn</Eyebrow>
             <h2
               style={{ fontFamily: 'Ciscela, serif' }}
@@ -28,7 +29,7 @@ export default function LiveTraffic() {
               traffic, road closures, and incident reports updated by drivers
               like you.
             </p>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

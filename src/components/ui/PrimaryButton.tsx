@@ -16,7 +16,8 @@ export default function PrimaryButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-full bg-primary text-white px-8 py-4 font-semibold hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${className}`}
+      className={`qm-press rounded-full bg-primary text-white px-8 py-4 font-semibold hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed ${className}`}
+      style={{ transition: 'transform 160ms var(--ease-out), background-color 200ms var(--ease-out)' }}
     >
       {children}
     </button>

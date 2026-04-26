@@ -1,5 +1,9 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
+
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 const pois = [
   { img: '/images/placeholders/poi-1.jpg',  name: 'Computer Village',          category: 'Ikeja' },
@@ -13,10 +17,23 @@ const pois = [
 ];
 
 export default function PlacesToDiscover() {
+  const reduce = useReducedMotion();
+
+  const item = {
+    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 12 },
+    show: reduce
+      ? { opacity: 1, transition: { duration: 0.2 } }
+      : { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
+  };
+  const stagger = {
+    hidden: {},
+    show: { transition: { staggerChildren: reduce ? 0 : 0.04 } },
+  };
+
   return (
     <section className="bg-white py-20">
       <Container>
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <Reveal className="text-center max-w-3xl mx-auto mb-16">
           <Eyebrow>Discover</Eyebrow>
           <h2
             style={{ fontFamily: 'Ciscela, serif' }}
@@ -28,11 +45,21 @@ export default function PlacesToDiscover() {
             From Computer Village to the Lekki coast, the places Lagos
             actually goes.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {pois.map((p) => (
-            <div key={p.name} className="bg-white border border-gray-100">
+            <motion.div
+              key={p.name}
+              variants={item}
+              className="qm-card-hover bg-white border border-gray-100"
+            >
               {/* TODO: Replace with photo of {p.name} in Lagos */}
               <img
                 src={p.img}
@@ -50,9 +77,9 @@ export default function PlacesToDiscover() {
                   {p.name}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

@@ -22,6 +22,10 @@
   --color-primary: #7856ff;
   --color-primary-dark: #6344e0;
   --color-primary-light: #f0ecff;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html,
@@ -35,4 +39,71 @@ body {
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scoped, intentional animations only — never `transition: all`. */
+
+.qm-press {
+  transition: transform 160ms var(--ease-out);
+  will-change: transform;
+}
+.qm-press:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .qm-card-hover {
+    transition: transform 220ms var(--ease-out), border-color 220ms var(--ease-out);
+  }
+  .qm-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: #e5e7eb;
+  }
+}
+
+/* Mobile drawer slide. Modern browsers get @starting-style; older ones still
+   get a clean cut without breakage. */
+.qm-drawer {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 280ms var(--ease-drawer), opacity 200ms var(--ease-out);
+}
+@starting-style {
+  .qm-drawer {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+/* Crossfade between two stacked elements (used in the waitlist success swap).
+   The blur masks the visual gap between the two states. */
+.qm-fade-leave {
+  transition: opacity 220ms var(--ease-out), filter 220ms var(--ease-out);
+  opacity: 0;
+  filter: blur(2px);
+}
+.qm-fade-enter {
+  transition: opacity 280ms var(--ease-out), filter 280ms var(--ease-out);
+}
+@starting-style {
+  .qm-fade-enter {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qm-press,
+  .qm-card-hover,
+  .qm-drawer,
+  .qm-fade-leave,
+  .qm-fade-enter {
+    transition: opacity 200ms ease;
+  }
+  .qm-press:active {
+    transform: none;
+  }
+  .qm-card-hover:hover {
+    transform: none;
+  }
 }

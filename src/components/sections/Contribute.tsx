@@ -1,12 +1,13 @@
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 export default function Contribute() {
   return (
     <section id="contribute" className="bg-white py-20">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
+          <Reveal>
             <Eyebrow>Contribute</Eyebrow>
             <h2
               style={{ fontFamily: 'Ciscela, serif' }}
@@ -19,15 +20,15 @@ export default function Contribute() {
               new suya place? Add it. Every place you share makes Qore Maps
               better for the next person.
             </p>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={0.08}>
             {/* TODO: Replace with photo of a Nigerian contributor adding a place — market scene or street pin UI */}
             <img
               src="/images/placeholders/report-road.webp"
               alt="Adding a new place to Qore Maps"
               className="w-full object-cover border border-gray-100"
             />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
