@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Ciscela';
+  src: url('/fonts/Ciscela-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anderson Grotesk';
+  src: url('/fonts/AndersonGrotesk.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #7856ff;
+  --color-primary-dark: #6344e0;
+  --color-primary-light: #f0ecff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Anderson Grotesk', system-ui, sans-serif;
+  color: #111827;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
