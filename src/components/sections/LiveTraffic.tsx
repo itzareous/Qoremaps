@@ -8,9 +8,8 @@ export default function LiveTraffic() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal className="order-2 lg:order-1">
-            {/* TODO: Replace with photo of a Nigerian driver in Lagos traffic, dashboard view */}
             <img
-              src="/images/placeholders/driver-single.webp"
+              src="/images/turnbyturn.jpg"
               alt="Driver navigating Lagos with Qore Maps on the dashboard"
               className="w-full object-cover border border-gray-100"
             />

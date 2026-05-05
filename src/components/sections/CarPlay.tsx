@@ -21,9 +21,8 @@ export default function CarPlay() {
           </p>
         </Reveal>
         <Reveal className="flex justify-center" delay={0.12} duration={0.7}>
-          {/* TODO: Replace with CarPlay dashboard showing Lagos map data */}
           <img
-            src="/images/placeholders/carplay.webp"
+            src="/images/comingsoon.jpg"
             alt="Qore Maps running on a CarPlay dashboard"
             className="w-full max-w-4xl object-cover"
           />

@@ -22,9 +22,8 @@ export default function Contribute() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            {/* TODO: Replace with photo of a Nigerian contributor adding a place — market scene or street pin UI */}
             <img
-              src="/images/placeholders/report-road.webp"
+              src="/images/contribute.jpg"
               alt="Adding a new place to Qore Maps"
               className="w-full object-cover border border-gray-100"
             />

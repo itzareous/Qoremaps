@@ -8,9 +8,8 @@ export default function RoadConditions() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal className="order-2 lg:order-1">
-            {/* TODO: Replace with Lagos pothole / flooding alert UI mockup */}
             <img
-              src="/images/placeholders/road-conditions-ui.webp"
+              src="/images/roadconditions.png"
               alt="Qore Maps showing a road condition alert"
               className="w-full object-cover border border-gray-100"
             />

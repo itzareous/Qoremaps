@@ -21,10 +21,9 @@ export default function LaneGuidance() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            {/* TODO: Replace with Lagos junction lane-guidance UI mockup */}
             <img
-              src="/images/placeholders/lane-guidance-1.webp"
-              alt="Lane guidance UI on a Lagos junction"
+              src="/images/laneguidance.png"
+              alt="Lane guidance on a Lagos junction"
               className="w-full object-cover border border-gray-100"
             />
           </Reveal>

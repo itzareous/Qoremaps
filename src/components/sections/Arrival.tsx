@@ -21,9 +21,8 @@ export default function Arrival() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            {/* TODO: Replace with arrival card UI showing a Lagos POI like a Lekki restaurant */}
             <img
-              src="/images/placeholders/arrival.webp"
+              src="/images/arrival.jpg"
               alt="Arrival card showing a Lagos destination"
               className="w-full object-cover border border-gray-100"
             />

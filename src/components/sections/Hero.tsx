@@ -71,10 +71,9 @@ export default function Hero() {
             transition={{ duration: reduce ? 0.2 : 0.7, ease: EASE, delay: 0.15 }}
             className="flex justify-center lg:justify-end"
           >
-            {/* TODO: Replace with phone mockup showing Qore Maps Lagos navigation UI */}
             <img
-              src="/images/placeholders/hero-phone.webp"
-              alt="Phone showing Qore Maps navigating a Lagos route"
+              src="/images/hero.png"
+              alt="Qore Maps navigating a Lagos route"
               className="w-full max-w-md object-contain"
               style={{ aspectRatio: '3 / 4' }}
             />
