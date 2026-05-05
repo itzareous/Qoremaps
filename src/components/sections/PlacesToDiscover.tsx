@@ -6,14 +6,14 @@ import Reveal from '@/components/ui/Reveal';
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 const pois = [
-  { img: '/images/placeholders/poi-1.jpg',  name: 'Computer Village',          category: 'Ikeja' },
-  { img: '/images/placeholders/poi-2.jpg',  name: 'Shoprite Lekki',            category: 'Shopping' },
-  { img: '/images/placeholders/poi-3.webp', name: 'Chicken Republic',          category: 'Food' },
-  { img: '/images/placeholders/poi-4.webp', name: 'NNPC Filling Station',      category: 'Fuel' },
-  { img: '/images/placeholders/poi-5.webp', name: 'GTBank',                    category: 'Banking' },
-  { img: '/images/placeholders/poi-6.webp', name: 'Lekki Conservation Centre', category: 'Outdoors' },
-  { img: '/images/placeholders/poi-7.webp', name: 'Nike Art Gallery',          category: 'Culture' },
-  { img: '/images/placeholders/poi-8.webp', name: 'New Afrika Shrine',         category: 'Nightlife' },
+  { img: '/images/lagos-places/computer-village.webp',   name: 'Computer Village',          category: 'Ikeja' },
+  { img: '/images/lagos-places/shoprite.webp',           name: 'Shoprite Lekki',            category: 'Shopping' },
+  { img: '/images/lagos-places/chicken-republic.webp',   name: 'Chicken Republic',          category: 'Food' },
+  { img: '/images/lagos-places/nnpc.webp',               name: 'NNPC Filling Station',      category: 'Fuel' },
+  { img: '/images/lagos-places/gtbank.webp',             name: 'GTBank',                    category: 'Banking' },
+  { img: '/images/lagos-places/conservation-centre.webp', name: 'Lekki Conservation Centre', category: 'Outdoors' },
+  { img: '/images/lagos-places/nike-gallery.webp',       name: 'Nike Art Gallery',          category: 'Culture' },
+  { img: '/images/lagos-places/afrika-shrine.webp',      name: 'New Afrika Shrine',         category: 'Nightlife' },
 ];
 
 export default function PlacesToDiscover() {
@@ -60,10 +60,11 @@ export default function PlacesToDiscover() {
               variants={item}
               className="qm-card-hover bg-white border border-gray-100"
             >
-              {/* TODO: Replace with photo of {p.name} in Lagos */}
               <img
                 src={p.img}
                 alt={p.name}
+                loading="lazy"
+                decoding="async"
                 className="w-full aspect-square object-cover"
               />
               <div className="p-5">
